@@ -297,6 +297,119 @@ def feladat_20B(n):
         b=a-b
         k=k+1
 
+def feladat_21(n):
+    ujszam=0
+    while n!=0:
+        ujszam=ujszam*10+n%10
+        n=n//10
+    return ujszam
+
+def feladat_22(alap,kitevo):
+    eredmeny=1
+    while kitevo>0:
+        if kitevo%2!=0:
+            eredmeny=eredmeny*alap
+            kitevo=kitevo-1
+        alap=alap*alap
+        kitevo=kitevo//2
+    return eredmeny
+
+def feladat_23(n):
+    sum = 0
+    for i in range(1, n):
+        if n % i == 0:
+            sum += i
+    return sum == n
+
+def feladat_24():
+    asd=True
+    db1=0
+    db2=0
+    while asd==True:
+        a=int(input("input: "))
+
+        if a==0:
+            asd=False
+        else:
+            if a%7==5:
+                db1+=1
+            if a%13==7:
+                db2+=1
+    return ("7el osztva 5 a maradek: "),db1,("13mal osztva 7 a maradek: "),db2
+
+def feladat_25():
+    fo=int(input("fo: "))
+    km2=int(input("km^2: "))
+    nepsuruseg=fo//km2
+    if nepsuruseg>0:
+        if nepsuruseg<50:
+            print("Ritkan lakott nepsuruseg")
+        elif nepsuruseg>50 and nepsuruseg<300:
+            print("Atlagos nepsuruseg")
+        else:
+            print("Surun lakott")
+    else:
+        print("Hiba")
+
+def feladat_26():
+    osszeg=0
+    negativ=0
+    pozitiv=0
+    asd=True
+    while asd is True:
+        szam=int(input("szam: "))
+        if szam==0:
+            asd=False
+        else:
+            osszeg=osszeg + szam
+            print(osszeg)
+            if szam>0:
+                pozitiv+=1
+            elif szam<0:
+                negativ+=1
+    print("pozitiv szamok: ")
+    print(pozitiv)
+    print("negativ szamok: ")
+    print(negativ)
+
+def feladat_27():
+    asd=True
+    poz=1
+    pozitiv=0
+    neg=1
+    negativ=0
+    while asd is True:
+        szam=int(input("szam: "))
+        if szam>0:
+            poz+=1
+            pozitiv+=1
+        elif szam<0:
+            neg+=1
+            negativ+=1
+
+        if poz-neg==2 or poz-neg==-2:
+            asd=False
+    print("Pozitiv szamok: ")
+    print(pozitiv)
+    print("Negativ szamok: ")
+    print(negativ)
+
+def feladat_29(szam):
+    num = 1
+    while szam >= 1 and szam<=11:
+        num = num * szam
+        szam = szam - 1
+    return num
+
+# def feladat_30(ev,ho,nap): #nincs kesz
+#     if ho==1:
+#         print("A",ev,"ev", nap,".napja")
+#     elif ho==2:
+#         return 28+nap
+#     elif ho==3:
+#         return
+
+
 
 def main():
     print("Feladat 1:")
@@ -357,6 +470,32 @@ def main():
     feladat_20A(5)
     print("Feladat 20 Masodik resze:")
     feladat_20B(5)
+    
+    print("Feladat 21:")
+    print(feladat_21(321))
+
+    print("Feladat 22:")
+    print(feladat_22(2,3))
+
+    print("Feladat 23:")
+    print(feladat_23(6))
+
+    print("Feladat 24:")
+    print(feladat_24())
+
+    print("Feladat 25:")
+    feladat_25()
+
+    print("Feladat 26:")
+    feladat_26()
+
+    print("Feladat 27:")
+    feladat_27()
+
+    print("Feladat 29:")
+    print(feladat_29(5))
+
+
 
 
 
