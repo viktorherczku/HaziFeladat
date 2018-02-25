@@ -167,8 +167,12 @@ def feladat_9(a,b,c):
 
         return (-b+m.sqrt(delta))/(2*a),(-b-m.sqrt(delta))/(2*a)
 
-#def feladat_10(a,b):
-
+def feladat_10(a,b):
+    db = 0
+    for i in range(a, b + 1):
+        if i % 4 == 0 and i % 100 != 0 or i % 400 == 0:
+            db += 1
+    print(db, "db")
 #def feladat_11(a):
 
 def feladat_12(max_pont,elert_pont):
@@ -245,19 +249,16 @@ def feladat_17(n):
         n=n//10
     return uj==a
 
-# def feladat_18(a,b): #nincs kesz
-#     x=a
-#     y=b
-#     p=0
-#     while x>0:
-#         if x%2!=0:
-#             p=p+y
-#             print(p)
-#         x=x/2
-#         print(x)
-#         y=y+y
-#         print(y)
-#     return p
+def feladat_18(a,b):
+    x=a
+    y=b
+    p=0
+    while x>0:
+        if x%2!=0:
+            p=p+y
+        x=x/2
+        y=y+y
+    return p
 
 def feladat_19(n):
     p=True
@@ -401,13 +402,42 @@ def feladat_29(szam):
         szam = szam - 1
     return num
 
-# def feladat_30(ev,ho,nap): #nincs kesz
-#     if ho==1:
-#         print("A",ev,"ev", nap,".napja")
-#     elif ho==2:
-#         return 28+nap
-#     elif ho==3:
-#         return
+def feladat_30(ev,ho,nap):
+    if ev>0 and ho>0 and nap>0 and ho<13 and nap<32:
+
+        if ho==1:
+            print(31,". napja a", ev, "évnek")
+        elif ho==2:
+            print(31+nap,". napja a",ev,"évnek")
+        elif ho==3:
+            print(31+28+nap, ". napja a", ev, "évnek")
+        elif ho==4:
+            print(31 + 28 +31 +nap, ". napja a", ev, "évnek")
+        elif ho==5:
+            print(31 + 28 + 31 +30+ nap, ". napja a", ev, "évnek")
+        elif ho==6:
+            print(31+28+31+30+31+nap, ". napja a", ev, "évnek")
+        elif ho==7:
+            print(31+28+31+30+31+30+nap, ". napja a", ev, "évnek")
+        elif ho==8:
+            print(31+28+31+30+31+30+31+nap, ". napja a", ev, "évnek")
+        elif ho==9:
+            print(31 + 28 + 31 + 30 + 31 + 30 + 31 +31+ nap, ". napja a", ev, "évnek")
+        elif ho==10:
+            print(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 +30+ nap, ". napja a", ev, "évnek")
+        elif ho==11:
+            print(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 +30+31+ nap, ". napja a", ev, "évnek")
+        elif ho==12:
+            print(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31+30 + nap, ". napja a", ev, "évnek")
+    else:
+        print("Hiba")
+
+
+
+
+
+
+
 
 
 
@@ -441,7 +471,8 @@ def main():
     print(feladat_9(1,2,1))
     print(feladat_9(1,-4,3))
 
-    #print(feladat_10(1985,2020))
+    print("Feladat 10:")
+    feladat_10(1952, 1996)
 
     print("Feladat 12:")
     print(feladat_12(100,61))
@@ -470,7 +501,8 @@ def main():
     feladat_20A(5)
     print("Feladat 20 Masodik resze:")
     feladat_20B(5)
-    
+    print()
+
     print("Feladat 21:")
     print(feladat_21(321))
 
@@ -494,6 +526,9 @@ def main():
 
     print("Feladat 29:")
     print(feladat_29(5))
+
+    print("Feladat 30:")
+    feladat_30(2010,2,2)
 
 
 
