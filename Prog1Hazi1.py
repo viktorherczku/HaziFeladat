@@ -395,6 +395,11 @@ def feladat_27():
     print("Negativ szamok: ")
     print(negativ)
 
+def feladat_28(szam):
+    for i in range(1,szam):
+        if i*i<szam:
+            print(i)
+
 def feladat_29(szam):
     num = 1
     while szam >= 1 and szam<=11:
@@ -402,7 +407,10 @@ def feladat_29(szam):
         szam = szam - 1
     return num
 
-def feladat_30(ev,ho,nap):
+def feladat_30():
+    ev=int(input("ev: "))
+    ho=int(input("ho: "))
+    nap=int(input("nap: "))
     if ev>0 and ho>0 and nap>0 and ho<13 and nap<32:
 
         if ho==1:
@@ -431,6 +439,71 @@ def feladat_30(ev,ho,nap):
             print(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31+30 + nap, ". napja a", ev, "évnek")
     else:
         print("Hiba")
+
+def feladat_31(szam):
+    a=szam//2
+    for i in range(1,a):
+        if szam%i==0:
+            print(i)
+    print(szam)
+def feladat_32(n1,n2):
+    szam = int(input("szam: "))
+    for i in range(n1 + 1, n2):
+        if i % szam == 0:
+            print(i)
+
+def feladat_34(szam):
+    if szam>6 and szam%2==0:
+        tomb=[]
+        for i in range(1,szam):
+            if feladat_19(i):
+                tomb.append(i)
+        for j in tomb:
+            for x in tomb:
+                if j+x==szam:
+                    return j,x
+    else:
+        return "Hiba"
+
+def feladat_35(szam):
+    tomb=[]
+    for i in range(1,szam):
+        if feladat_19(i):
+            tomb.append(i)
+    for p in tomb:
+        for q in tomb:
+            if abs(q-p)==2:
+                print(p,q)
+def feladat_36(szam):
+    a=1
+    b=1
+    k=1
+    db=0
+    for i in range(szam):
+        if b<szam:
+            a=a+b
+            b=a-b
+            k=k+1
+            db=db+1
+        if i==b:
+            break
+
+    return db
+def feladat_37(szam):
+    a = 1
+    b = 1
+    k = 1
+    db = 0
+    for i in range(szam):
+        a = a + b
+        b = a - b
+        k = k + 1
+        db = db + 1
+        if b>szam:
+            return b
+
+
+
 
 
 
@@ -492,7 +565,8 @@ def main():
     print("Feladat 17:")
     print(feladat_17(131))
 
-    # print(feladat_18(11,68))
+    print("Feladat 18:")
+    print(feladat_18(11,68))
 
     print("Feladat 19:")
     print(feladat_19(11))
@@ -524,16 +598,27 @@ def main():
     print("Feladat 27:")
     feladat_27()
 
+    print("Feladat 28:")
+    feladat_28(10)
+
     print("Feladat 29:")
     print(feladat_29(5))
 
     print("Feladat 30:")
-    feladat_30(2010,2,2)
+    feladat_30()
 
+    print("Feladat 31:")
+    feladat_31(100)
 
+    print("Feladat 32:")
+    feladat_32(5,55)
+
+    print("Feladat 34:")
+    print(feladat_34(10))
 
 
 
 
 if __name__ == '__main__':
     main()
+
