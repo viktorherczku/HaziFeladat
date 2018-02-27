@@ -465,15 +465,7 @@ def feladat_34(szam):
     else:
         return "Hiba"
 
-def feladat_35(szam):
-    tomb=[]
-    for i in range(1,szam):
-        if feladat_19(i):
-            tomb.append(i)
-    for p in tomb:
-        for q in tomb:
-            if abs(q-p)==2:
-                print(p,q)
+
 def feladat_36(szam):
     a=1
     b=1
@@ -615,6 +607,14 @@ def main():
 
     print("Feladat 34:")
     print(feladat_34(10))
+
+
+
+    print("Feladat 36:")
+    print(feladat_36(8))
+
+    print("Feladat 37:")
+    print(feladat_37(8))
 
 
 
