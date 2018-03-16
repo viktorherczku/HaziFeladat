@@ -183,24 +183,24 @@ def feladat_13():
 #     file=open("fel12.txt",mode="r")
 #     a=[]
 #     db=0
-    # for sor in file:
-    #     for i in range(len(sor)):
-    #         print(i)
-    #         a=sor[i]
-    #     for j in range(len(sor)-1,-1,-1):
-    #         print(j)
-    #         b=sor[j]
-    #     for i in range(len(sor)):
-    #             if a==b:
-    #                 db=db+1
-    #     print(db)
-    # for sor in file:
-    #     for i in range(len(sor)):
-    #         for j in range(len(sor) - 1, -1, -1):
-    #             if sor[i]==sor[j]:
-    #                 a.append(sor[i])
-    # print(a)
-
+#     for sor in file:
+#         for i in range(len(sor)):
+#             print(i)
+#             a=sor[i]
+#         for j in range(len(sor)-1,-1,-1):
+#             print(j)
+#     #         b=sor[j]
+#     #     for i in range(len(sor)):
+#     #             if a==b:
+#     #                 db=db+1
+#     #     print(db)
+#     # for sor in file:
+#     #     for i in range(len(sor)):
+#     #         for j in range(len(sor) - 1, -1, -1):
+#     #             if sor[i]==sor[j]:
+#     #                 a.append(sor[i])
+#     # print(a)
+#
 
 def feladat_15():
     try:
@@ -304,6 +304,7 @@ def feladat_18():
                 print(lista[2])
 
         print(lista)
+        file.close()
     except OSError:
         print("hiba")
     except Exception as a:
@@ -325,8 +326,219 @@ def feladat_19():
                     max=int(lista[1])
                     p=i
         print(p)
+        file.close()
     except OSError:
         print("hiba")
+    except Exception as a:
+        print(a)
+
+def feladat_20():
+    try:
+        max=0
+        lista=[]
+        p=""
+        file=cod.open("be.txt",encoding="UTF-8",mode="r")
+        for sor in file:
+            sor=sor.strip()
+            lista=sor.split(";")
+            for i in lista:
+                if int(lista[2]) > max:
+                    max=int(lista[2])
+                    p=lista[0]
+        print(p)
+        file.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+
+
+def feladat_21():
+    try:
+        file=open("be.txt",mode="r")
+        file1=open("ki.txt",mode="w")
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(";")
+            sum=0
+            for i in range(1,len(sor)):
+                sum+=int(sor[i])
+            file1.write("%s %d"%(sor[0],sum))
+            file1.write("\n")
+        file.close()
+        file1.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+
+def feladat_22():
+    try:
+        min=100000000
+        lista=[]
+        p=""
+        file=cod.open("be.txt",encoding="UTF-8",mode="r")
+        file1=open("ki.txt",mode="w")
+        for sor in file:
+            sor=sor.strip()
+            lista=sor.split(";")
+            for i in lista:
+                if float(lista[2]) < min:
+                    min=float(lista[2])
+                    p=lista[0]
+        file1.write(p)
+        file.close()
+        file1.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+
+def feladat_23():
+    try:
+        asd=""
+        lista=[]
+        file=open("be.txt",mode="r")
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(" ")
+            lista.append(sor[1])
+        for i in range(len(lista)-2):
+            if int(lista[i])<int(lista[i+1]):
+                asd="Yes"
+            elif int(lista[i])>int(lista[i+1]):
+                asd="No"
+                break
+
+        print(asd)
+        file.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+
+def feladat_24():
+    try:
+        teki_eredmeny=0
+        csiga_eredmeny=0
+        lista=[]
+        teki=[]
+        csiga=[]
+        file=open("be.txt",mode="r")
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(" ")
+            lista.append(sor)
+
+        teki=lista[1]
+        csiga=lista[2]
+
+        for i in teki:
+            teki_eredmeny+=int(i)
+        for j in csiga:
+            csiga_eredmeny+=int(j)
+
+        if teki_eredmeny>csiga_eredmeny:
+            print(teki_eredmeny*2)
+            print("TURTLE")
+        elif teki_eredmeny<csiga_eredmeny:
+            print(csiga_eredmeny*2)
+            print("SNAIL")
+        else:
+            print(teki_eredmeny*2)
+            print("DRAW")
+        file.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+
+def feladat_25():
+    try:
+        asd=0
+        megtanulando_szamok=0
+        lista=[]
+        angol=[]
+        magyar=[]
+        db=0
+        db1=0
+        file=open("szotar.txt",mode="r")
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(":")
+            lista.append(sor)
+        asd=lista[0]
+        lista.remove(lista[0])
+        megtanulando_szamok=asd[0-1]
+        print(megtanulando_szamok)
+
+        for x in lista:
+            # print(x[0])
+            angol.append(x[0])
+            magyar.append(x[1])
+
+
+        for i in range(0, int(megtanulando_szamok) - 1):
+            for j in range(i + 1, int(megtanulando_szamok)):
+                if angol[i] != angol[j]:
+                    db += 1
+        for i in range(0, int(megtanulando_szamok) - 1):
+            for j in range(i + 1, int(megtanulando_szamok)):
+                if magyar[i] != magyar[j]:
+                    db1 += 1
+        print(db//2)
+        print(db1//2)
+        file.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+
+def feladat_26():
+    try:
+        db=0
+        db1=0
+        asd=[]
+        asd1=[]
+        lista=[]
+        lista1=[]
+        lista2=[]
+        file=open(sys.argv[1],mode="r")
+        file1=open(sys.argv[2],mode="r")
+        file2=open("ki.txt",mode="w")
+
+        for sor in file:
+            sor=sor.strip()
+            lista.append(sor)
+            db+=1
+            asd=sor.split(";")
+            asd1.append(asd[2])
+
+        # for b in asd1:
+        #     if len(b)>15:
+        #         print("NEM JÓ")
+
+
+        for sor1 in file1:
+            sor1=sor1.strip()
+            lista1.append(sor1)
+            db1+=1
+
+
+
+
+        for x in lista:
+            for y in lista1:
+                if x not in y:
+                    lista2.append(x)
+        file2.write("%d %d\n"%(db,db1))
+
+        file.close()
+        file2.close()
+        file1.close()
+    except OSError:
+        print("hiba")
+
     except Exception as a:
         print(a)
 
@@ -391,6 +603,27 @@ def main():
 
     print("feladat 19:")
     feladat_19()
+
+    print("feladat 20:")
+    feladat_20()
+
+    print("feladat 21:")
+    feladat_21()
+
+    print("feladat 22:")
+    feladat_22()
+
+    print("feladat 23:")
+    feladat_23()
+
+    print("feladat 24:")
+    feladat_24()
+
+    print("feladat 25:")
+    feladat_25()
+
+    print("feladat 26:")
+    feladat_26()
 
 
 
