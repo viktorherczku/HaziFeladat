@@ -496,10 +496,14 @@ def feladat_25():
 
 def feladat_26():
     try:
+        ha=True
+        ha1=True
         db=0
         db1=0
         asd=[]
         asd1=[]
+        masodik=[]
+        masodik1=[]
         lista=[]
         lista1=[]
         lista2=[]
@@ -513,26 +517,43 @@ def feladat_26():
             db+=1
             asd=sor.split(";")
             asd1.append(asd[2])
+            if int(asd[1])>6 or int(asd[1])<0:
+                ha=False
 
-        # for b in asd1:
-        #     if len(b)>15:
-        #         print("NEM JÓ")
+        for b in asd1:
+            if len(b)>15:
+                ha=False
 
 
         for sor1 in file1:
             sor1=sor1.strip()
             lista1.append(sor1)
             db1+=1
+            masodik = sor1.split(";")
+            masodik1.append(masodik[2])
+            if int(masodik[1])>6 or int(masodik[1])<0:
+                ha1=False
+
+        for c in masodik1:
+            if len(c)>15:
+                ha1=False
 
 
 
+        if ha is True and ha1 is True:
+            for x in lista:
+                for y in lista1:
+                    if x not in y:
+                        lista2.append(x)
+            file2.write("%d %d\n"%(db,db1))
 
-        for x in lista:
-            for y in lista1:
-                if x not in y:
-                    lista2.append(x)
-        file2.write("%d %d\n"%(db,db1))
-
+            for z in range(len(lista2) - 1):
+                if lista2[z] == lista2[z + 1]:
+                    a = lista2[z]
+                    a = str(a)
+                    file2.write("%s\n" % (a))
+        else:
+            print("Az evfolyamnak 1 es 5 koze kell esnie es a szak legfeljebb 15 karakter hosszu lehet")
         file.close()
         file2.close()
         file1.close()
