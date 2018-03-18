@@ -179,28 +179,7 @@ def feladat_13():
         print("hiba")
     except Exception as a:
         print(a)
-# def feladat_14(): #nem jó
-#     file=open("fel12.txt",mode="r")
-#     a=[]
-#     db=0
-#     for sor in file:
-#         for i in range(len(sor)):
-#             print(i)
-#             a=sor[i]
-#         for j in range(len(sor)-1,-1,-1):
-#             print(j)
-#     #         b=sor[j]
-#     #     for i in range(len(sor)):
-#     #             if a==b:
-#     #                 db=db+1
-#     #     print(db)
-#     # for sor in file:
-#     #     for i in range(len(sor)):
-#     #         for j in range(len(sor) - 1, -1, -1):
-#     #             if sor[i]==sor[j]:
-#     #                 a.append(sor[i])
-#     # print(a)
-#
+
 
 def feladat_15():
     try:
