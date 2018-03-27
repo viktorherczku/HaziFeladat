@@ -149,6 +149,72 @@ def feladat_10(t,k):
             if k<l[kozep]:
                 return kozep
 
+def feladat_11(neo,n,m):
+
+    for j in range(m):
+        db=0
+        db1=0
+        for i in range(n):
+            if neo[i][j]==0:
+                db+=1
+
+            if neo[i][j]<0:
+                db1+=1
+        if db1*2>=db and db!=0:
+
+            print(j)
+
+def feladat_12(neo,n,m):
+    for i in range(n):
+        for j in range(m):
+            asd=i+j
+            if asd!=0:
+                if neo[i][j]%asd==0 :
+                    print(neo[i][j])
+
+def feladat_13(neo,n,m):
+    for j in range(m):
+        min=99999999999999
+        for i in range(n):
+            if neo[i][j]<min:
+                min=neo[i][j]
+            neo[i][j]-=min
+    print(neo)
+
+def feladat_14(neo,n):
+    max=0
+    m=n
+    for i in range(n):
+        for j in range(m):
+            if i+j>=n:
+                if neo[i][j]>max:
+
+                    max=neo[i][j]
+
+    print(max)
+
+def feladat_15(neo,n):
+    db=0
+    m=n
+    for i in range(n):
+        for j in range(m):
+            if i==j and neo[i][j]==0:
+                db+=1
+    if db==n:
+        return True
+    else:
+        return False
+
+def feladat_16(neo,neo1,n,m):
+    matrix2=np.empty((n,m),dtype="d")
+    for i in range(m):
+        for j in range(n):
+            matrix2[j][i]=neo[i][j]
+    for a in range(n):
+        for b in range(m):
+            neo1[a][b]=matrix2[a][b]
+    print(neo1)
+
 
 
 
@@ -161,7 +227,7 @@ def main():
     feladat_1()
 
     print("feladat 2:")
-    feladat_2(69)
+    feladat_2(70)
 
     print("feladat 3:")
     n = int(input("n="))
@@ -203,6 +269,68 @@ def main():
     for i in range(n):
         tomb[i]=int(input())
     print(feladat_10(tomb,k))
+
+    print("feladat 11:")
+    n=int(input("n: "))
+    m=int(input("m: "))
+
+    matrix=np.empty((n,m),dtype="int")
+    for i in range(n):
+        for j in range(m):
+            matrix[i][j]=int(input())
+    feladat_11(matrix,n,m)
+
+
+    print("feladat 12:")
+    n=int(input("n: "))
+    m=int(input("m: "))
+    matrix=np.empty((n,m),dtype="int")
+    for i in range(n):
+        for j in range(m):
+            matrix[i][j]=int(input())
+    feladat_12(matrix,n,m)
+
+
+    print("feladat 13:")
+    n=int(input("n: "))
+    m=int(input("m: "))
+    matrix=np.empty((n,m),dtype="int")
+    for i in range(n):
+        for j in range(m):
+            matrix[i][j]=int(input())
+    print(matrix)
+    feladat_13(matrix,n,m)
+
+
+    print("feladat 14:")
+    n=int(input("n: "))
+    m=n
+    matrix=np.empty((n,m),dtype="int")
+    for i in range(n):
+        for j in range(m):
+            matrix[i][j]=int(input())
+    print(matrix)
+    feladat_14(matrix,n)
+
+
+    print("feladat 15:")
+    n=int(input("n: "))
+    m=n
+    matrix=np.empty((n,m),dtype="int")
+    for i in range(n):
+        for j in range(m):
+            matrix[i][j]=int(input())
+    print(feladat_15(matrix,n))
+
+    print("feladat 16:")
+    n=int(input("n: "))
+    m=int(input("m: "))
+    matrix=np.empty((n,m),dtype="d")
+    for i in range(n):
+        for j in range(m):
+            matrix[i][j]=(input("elso matrix elemei: "))
+    matrix1=np.zeros((m,n),dtype="d")
+    feladat_16(matrix,matrix1,n,m)
 
 if __name__ == '__main__':
     main()
