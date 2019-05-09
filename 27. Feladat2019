@@ -1,0 +1,12 @@
+import numpy as np
+m=np.random.randint(0,100,(5,5))
+print(m)
+osszeg=0
+a=np.max(m,axis=0)
+for i in a:
+    osszeg+=int(i)
+b=np.max(m,axis=1)
+for i in b:
+    osszeg+=int(i)
+
+print(sosszeg)
