@@ -1,0 +1,11 @@
+matrix1=[[1,4,5],[2,0,6],[1,0,6]]
+matrix2=[[1,0,0,0],[1,1,0,0],[1,1,1,0],[1,1,1,0]]
+def alsoharomszog(matrix):
+    for i in range(len(matrix)-1):
+        for j in range(i+1,len(matrix)):
+            if j>i and matrix[i][j]!=0:
+                return "nem jo"
+    return "jo"
+
+print(alsoharomszog(matrix1))
+print(alsoharomszog(matrix2))
